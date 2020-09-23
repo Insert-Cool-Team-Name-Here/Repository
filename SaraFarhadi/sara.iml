@@ -40,6 +40,11 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: com.vaadin.external.jsoup:jsoup-case-sensitive:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: com.guicedee.services:guava:1.0.17.1-jre8" level="project" />
+    <orderEntry type="library" name="Maven: com.guicedee.services:jakarta.activation:1.0.17.1-jre8" level="project" />
+    <orderEntry type="library" name="Maven: com.guicedee.services:jakarta.validation-api:1.0.17.1-jre8" level="project" />
+    <orderEntry type="library" name="Maven: com.guicedee.services:jakarta.annotation-api:1.0.17.1-jre8" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test:2.3.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-test-autoconfigure:2.3.4.RELEASE" level="project" />
