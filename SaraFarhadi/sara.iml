@@ -41,6 +41,7 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.vaadin.external.jsoup:jsoup-case-sensitive:1.9.2" level="project" />
+    <orderEntry type="library" name="Maven: org.jsoup:jsoup:1.13.1" level="project" />
     <orderEntry type="library" name="Maven: com.guicedee.services:guava:1.0.17.1-jre8" level="project" />
     <orderEntry type="library" name="Maven: com.guicedee.services:jakarta.activation:1.0.17.1-jre8" level="project" />
     <orderEntry type="library" name="Maven: com.guicedee.services:jakarta.validation-api:1.0.17.1-jre8" level="project" />
