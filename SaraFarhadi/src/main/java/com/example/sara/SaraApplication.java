@@ -9,7 +9,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
-import java.io.IOException;
+import java.io.*;
 
 @SpringBootApplication
 @RestController
@@ -28,7 +28,6 @@ public class SaraApplication {
 			System.out.println(
 					headline.attr("title") + ", " + headline.absUrl("href"));
 		}
-
 		String htmlString = "<html><head><title>Welcome</title></head>"
 				+ "<body>I am using Jsoup library!</body></html>";
 		Document docc = Jsoup.parse(htmlString);
@@ -38,13 +37,10 @@ public class SaraApplication {
 		System.out.printf("Body: %s", body);
 		myTitle = title;
 		myPage = body;
-
 	}
-
 	@GetMapping("/sara")
 	public String home() {
 		String s = "Hello world from Sara! \n" + myTitle + "\n" + myPage;
 		return s;
 	}
-
 }
