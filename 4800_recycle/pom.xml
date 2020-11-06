@@ -45,6 +45,27 @@
 				</exclusion>
 			</exclusions>
 		</dependency>
+		<dependency>
+			<groupId>com.google.maps</groupId>
+			<artifactId>google-maps-services</artifactId>
+			<version>0.15.0</version>
+		</dependency>
+		<dependency>
+			<groupId>com.googlecode.places-api-client</groupId>
+			<artifactId>places-api-client</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>tech.redroma.google</groupId>
+			<artifactId>google-places-api</artifactId>
+			<version>1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>se.walkercrou</groupId>
+			<artifactId>google-places-api-java</artifactId>
+			<version>1.2.4</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
