@@ -55,6 +55,19 @@
       text-decoration: none;
       color: cadetblue;
     }
+
+    BUTTON {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      background-color: #008CBA;
+    }
   </style>
 </head>
 
@@ -71,9 +84,9 @@
     let currentInfoWindow;
     let service;
     let infoPane;
+    let locationMarker;
     
     var user_input = prompt("What type of waste are you recycling?")
-
 
     function initMap() {
 
@@ -82,7 +95,6 @@
       currentInfoWindow = infoWindow;
    
       infoPane = document.getElementById('panel');
-
 
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(position => {
@@ -101,7 +113,6 @@
           infoWindow.open(map);
           map.setCenter(pos);
           markHome(pos, map);
-          
 
           // Call Places Nearby Search on user's location
           getNearbyPlaces(pos);
@@ -113,9 +124,8 @@
         // Browser doesn't support geolocation
         handleLocationError(false, infoWindow);
       }
-      
     }
-    
+
     function markHome(position, map){
     	new google.maps.Marker({
     	position: position,
@@ -126,8 +136,6 @@
     }
     });
 }
-    	
-
 
     function handleLocationError(browserHasGeolocation, infoWindow) {
 
@@ -137,18 +145,15 @@
         zoom: 15
       });
 
-
       infoWindow.setPosition(pos);
       infoWindow.setContent(browserHasGeolocation ?
         'Geolocation permissions denied. Using default location.' :
         'Error: Your browser doesn\'t support geolocation.');
       infoWindow.open(map);
       currentInfoWindow = infoWindow;
-
       getNearbyPlaces(pos);
     }
 
- 
     function getNearbyPlaces(position) {
       let request = {
         location: position,
@@ -174,7 +179,6 @@
           title: place.name
         });
 
-
         google.maps.event.addListener(marker, 'click', () => {
           let request = {
             placeId: place.place_id,
@@ -190,11 +194,11 @@
         // Adjust the map bounds to include the location of this marker
         bounds.extend(place.geometry.location);
       });
- 
       map.fitBounds(bounds);
     }
 
     function showDetails(placeResult, marker, status) {
+      locationMarker = marker;
       if (status == google.maps.places.PlacesServiceStatus.OK) {
         let placeInfowindow = new google.maps.InfoWindow();
         let rating = "None";
@@ -256,6 +260,34 @@
         websitePara.appendChild(websiteLink);
         infoPane.appendChild(websitePara);
       }
+
+      var btn = document.createElement("BUTTON");
+      btn.innerHTML = "Directions";
+      infoPane.appendChild(btn);
+      btn.onclick = function () {
+         var directionsService = new google.maps.DirectionsService();
+         var directionsDisplay = new google.maps.DirectionsRenderer();
+
+         var map = new google.maps.Map(document.getElementById('map'), {
+           zoom:10,
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+         });
+
+         directionsDisplay.setMap(map);
+         directionsDisplay.setPanel(document.getElementById('panel'));
+
+         var request = {
+           origin: pos,
+           destination: locationMarker.position,
+           travelMode: google.maps.DirectionsTravelMode.DRIVING
+         };
+
+         directionsService.route(request, function(response, status) {
+           if (status == google.maps.DirectionsStatus.OK) {
+             directionsDisplay.setDirections(response);
+           }
+         });
+      };
 
       // Open the infoPane
       infoPane.classList.add("open");
